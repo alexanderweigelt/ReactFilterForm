@@ -15,8 +15,7 @@ const Form: FC = () => {
   })
 
   function isChecked (value: string): boolean {
-    Object.values(values.filter).map((field) => { return field.includes(value) })
-    return true
+    return Object.values(values.filter).some((field) => { return field.includes(value) })
   }
 
   function submitForm (values: any): void {

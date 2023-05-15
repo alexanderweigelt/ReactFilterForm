@@ -1,24 +1,27 @@
-import { type FC } from 'react'
+import {type FC} from 'react'
 import logo from './assets/react.svg'
-import Form from './Form'
+import {Box, Flex, Heading, Text, Image} from '@chakra-ui/react'
+import FilterForm from './FilterForm.tsx'
 
 const App: FC = () => {
-  return (
-    <div className={'flex h-screen flex-col justify-between lg:container lg:mx-auto px-3 lg:px-0'}>
-      <header className={'flex pb-3 lg:mb-3 lg:border-b w-full items-center justify-between'}>
-        <img src={logo} className={'max-w-[120px]'} alt="logo"/>
-        <h1 className={'text-5xl font-bold text-gray-500'}>
-          Filter
-        </h1>
-      </header>
-      <main>
-        <Form />
-      </main>
-      <footer className={'text-center py-4'}>
-        <p className={'text-sm'}>&copy; 2023 by Alexander Weigelt</p>
-      </footer>
-    </div>
-  )
+    return (
+        <Flex justify={'space-between'} height={'100vh'} direction={'column'} mx={['auto']}
+              maxW={{base: '100%', lg: '1024px'}} px={{base: '1', lg: '0'}}>
+            <Flex as={'header'} py={'3'} mb={{base: '0', lg: '1'}} borderBottom={{base: 'none', lg: '1px'}}
+                  borderBottomColor={'gray.400'} justifyItems={'center'} justifyContent={'space-between'}>
+                <Image src={logo} maxW={'120px'} alt="logo"/>
+                <Heading color={'gray.700'}>
+                    React Filter Form
+                </Heading>
+            </Flex>
+            <Box flex={'1 1 0%'} as={'main'}>
+                <FilterForm/>
+            </Box>
+            <Box as={'footer'} textAlign={'center'} pb={'2'}>
+                <Text fontSize={'sm'}>&copy; 2023 by Alexander Weigelt</Text>
+            </Box>
+        </Flex>
+    )
 }
 
 export default App
